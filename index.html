@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scammer / Contact List — Searchable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Scammer / Contact List</h1>
+        <div class="meta">
+          Fields:
+          <span class="tag">Name</span>
+          <span class="tag">Alias</span>
+          <span class="tag">Number</span>
+          <span class="tag">Description</span>
+          <span class="tag">Verified By</span>
+          <span class="admin-bar" id="adminBar" style="display:none">
+            🔒 Admin Mode Active <button id="logoutBtn">Logout</button>
+          </span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="search">
+          <input id="q" type="search" placeholder="Search name, alias, number, description, verified by..." />
+          <select id="filterVerified" title="Filter by verified">
+            <option value="all">All</option>
+            <option value="verified">Verified</option>
+            <option value="unverified">Unverified</option>
+          </select>
+        </div>
+        <div class="toolbar">
+          <button id="addBtn" disabled>Add</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div class="small">Showing <span id="count" class="count">0</span> results</div>
+        <div class="small">Tip: press <kbd>/</kbd> to focus search</div>
+      </div>
+
+      <div id="results" style="margin-top:12px"></div>
+      <div id="empty" class="empty" style="display:none;margin-top:12px">No results. Add new entries using the Add button.</div>
+    </div>
+  </div>
+
+  <!-- Modal form -->
+  <div id="modal" class="modal" style="display:none">
+    <form id="entryForm" class="form" onsubmit="return false">
+      <h3 id="formTitle">Add entry</h3>
+      <label>Name<input id="name" required></label>
+      <label>Alias<input id="alias"></label>
+      <label>Number<input id="number" placeholder="e.g. +63 912 345 6789"></label>
+      <label>Description<textarea id="description"></textarea></label>
+      <label>Verified By (leave empty if unverified)<input id="verifiedBy"></label>
+      <div class="footer">
+        <div style="display:flex;gap:8px">
+          <button id="saveBtn">Save</button>
+          <button id="cancelBtn" type="button" class="ghost">Cancel</button>
+        </div>
+        <div class="small">Entries are stored in your browser (localStorage).</div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Scammer Watchlist — Built for public awareness</p>
+    <div class="socials">
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="admin.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

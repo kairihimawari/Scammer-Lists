@@ -1,0 +1,123 @@
+:root {
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#60a5fa;
+  --danger:#fb7185;
+}
+
+html,body {
+  height:100%;
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg,#071024 0%,#071a2a 100%);
+  color:#e6eef6;
+  padding:16px;
+}
+
+.wrap {
+  max-width:1100px;
+  margin:0 auto;
+}
+
+header {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+@media (min-width:600px) {
+  header {
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+  }
+}
+
+h1 { font-size:20px; margin:0; }
+
+.controls { display:flex; flex-direction:column; gap:8px; }
+@media (min-width:600px) {
+  .controls { flex-direction:row; align-items:center; }
+}
+
+input[type="search"], select {
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:rgba(255,255,255,0.02);
+  color:inherit;
+  width:100%;
+}
+
+button {
+  background:var(--accent);
+  border:none;
+  color:#042233;
+  padding:9px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+button.ghost {
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--muted);
+}
+
+button:disabled {
+  opacity:0.4;
+  cursor:not-allowed;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+@media (min-width:880px) {
+  .grid { grid-template-columns:repeat(2,1fr); }
+}
+
+.card {
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.desc {
+  margin-top:10px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.footer {
+  text-align:center;
+  margin-top:30px;
+  padding:16px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.footer p {
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.footer .socials {
+  margin-top:8px;
+}
+
+.footer .socials a {
+  color:var(--accent);
+  text-decoration:none;
+  margin:0 8px;
+  font-size:14px;
+}
+
+.footer .socials a:hover {
+  text-decoration:underline;
+}
